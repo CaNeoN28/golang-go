@@ -9,20 +9,18 @@ import (
 func BubbleSort(array []int) []int {
 	copy := array
 
-	for i := 0; i < 1; {
-		ocurrences := 0
-		for j := 0; j < len(copy); j++ {
-			if j != len(copy)-1 && copy[j] > copy[j+1] {
-				ocurrences += 1
-				aux := copy[j]
-				copy[j] = copy[j+1]
-				copy[j+1] = aux
-			}
+	ocurrences := 0
+	for j := 0; j < len(copy); j++ {
+		if j != len(copy)-1 && copy[j] > copy[j+1] {
+			ocurrences += 1
+			aux := copy[j]
+			copy[j] = copy[j+1]
+			copy[j+1] = aux
 		}
+	}
 
-		if ocurrences == 0 {
-			i += 1
-		}
+	if ocurrences != 0 {
+		copy = BubbleSort(copy)
 	}
 
 	return copy
