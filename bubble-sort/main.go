@@ -10,12 +10,10 @@ func BubbleSort(array []int) []int {
 	copy := array
 
 	ocurrences := 0
-	for j := 0; j < len(copy); j++ {
-		if j != len(copy)-1 && copy[j] > copy[j+1] {
+	for j := 0; j < len(copy) - 1; j++ {
+		if copy[j] > copy[j+1] {
 			ocurrences += 1
-			aux := copy[j]
-			copy[j] = copy[j+1]
-			copy[j+1] = aux
+			copy[j], copy[j + 1] = copy[j+1], copy[j]
 		}
 	}
 
